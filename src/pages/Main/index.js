@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import logo from '~/assets/s.png';
-import api from '~/services/api';
+import { api, apiIcons } from '~/services/api';
 
 import {
   CityButton,
@@ -18,13 +18,13 @@ import {
 
 export default function Main({ navigation }) {
   const [queryCity, setQueryCity] = useState('');
-  const [city, setCity] = useState(['']);
+  const [city, setCity] = useState();
   const [loading, SetLoading] = useState(false);
 
   async function handleSearchCity() {
     SetLoading(true);
     const response = await api.get(`search/?query=${queryCity}`);
-    setCity([response.data]);
+    setCity(response.data);
     SetLoading(false);
   }
 
@@ -54,14 +54,15 @@ export default function Main({ navigation }) {
         <ActivityIndicator size="large" />
       ) : (
         <List
-          data={city[0]}
+          data={city}
           keyExtractor={citys => citys.woeid}
-          renderItem={({ item }) => (
-            // <ProfileButton onPress={() => this.handleNavigate(item)}>
-            <CityButton onPress={() => handleNavigate(item)}>
-              <CityButtonText>{item.title}</CityButtonText>
-            </CityButton>
-          )}
+          renderItem={({ item }) =>
+            city && (
+              <CityButton onPress={() => handleNavigate(item)}>
+                <CityButtonText>{item.title}</CityButtonText>
+              </CityButton>
+            )
+          }
         />
       )}
     </Container>
