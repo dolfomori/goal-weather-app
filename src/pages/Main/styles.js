@@ -27,6 +27,7 @@ margin-top:50px;
   width:100%;
   background: #eee;
   border-radius: 4px;
+  font-size:20px;
   /* border: 1px solid ${props => (props.error ? 'red' : '#eee')}; */
   color: #999;
 `;
@@ -45,10 +46,29 @@ export const TextButton = styled.Text`
   color: white;
   font-size: 20px;
   font-weight: bold;
+  text-transform: uppercase;
 `;
 
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })`
   margin-top: 20px;
+`;
+
+export const CityButton = styled(RectButton)`
+  padding: 20px;
+  background-color: #f4f4f4;
+  margin-top: 10px;
+`;
+
+export const CityButtonText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: #fa7021;
+  text-align: center;
+`;
+
+export const ActivityIndicator = styled.ActivityIndicator`
+  margin-top: 20px;
+  align-content: center;
 `;

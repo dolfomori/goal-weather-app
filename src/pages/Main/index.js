@@ -1,32 +1,36 @@
-import React, { useState } from 'react';
-import { Text } from 'react-native';
 import PropTypes from 'prop-types';
-
+import React, { useState } from 'react';
 import logo from '~/assets/s.png';
 import api from '~/services/api';
 
 import {
+  CityButton,
+  CityButtonText,
   Container,
   ImageLogo,
   Input,
+  List,
   MainText,
   SearchButton,
   TextButton,
-  List,
+  ActivityIndicator,
 } from './styles';
 
 export default function Main({ navigation }) {
-  const [queryCity, setqueryCity] = useState('');
+  const [queryCity, setQueryCity] = useState('');
   const [city, setCity] = useState(['']);
+  const [loading, SetLoading] = useState(false);
 
   async function handleSearchCity() {
-    // console.tron.log(this.state.newUser);
-    const response = await api.get(`?query=${queryCity}`);
+    SetLoading(true);
+    const response = await api.get(`search/?query=${queryCity}`);
     setCity([response.data]);
-    console.tron.log(city);
+    SetLoading(false);
   }
 
   function handleNavigate(cityData) {
+    setCity('');
+    setQueryCity('');
     navigation.navigate('Forecast', { cityData });
   }
 
@@ -37,24 +41,29 @@ export default function Main({ navigation }) {
       <Input
         autoCorrect={false}
         autoCapitalize="none"
-        placeholder="Search City"
+        placeholder="Enter Any City In The World"
         returnKeyType="send"
         onSubmitEditing={handleSearchCity}
         value={queryCity}
-        onChangeText={setqueryCity}
+        onChangeText={setQueryCity}
       />
       <SearchButton onPress={handleSearchCity}>
-        <TextButton>Search a City</TextButton>
+        <TextButton>Search</TextButton>
       </SearchButton>
-
-      <List
-        data={city[0]}
-        keyExtractor={citys => citys.woeid}
-        renderItem={({ item }) => (
-          // <ProfileButton onPress={() => this.handleNavigate(item)}>
-          <Text onPress={() => handleNavigate(item)}>{item.title}</Text>
-        )}
-      />
+      {loading ? (
+        <ActivityIndicator size="large" />
+      ) : (
+        <List
+          data={city[0]}
+          keyExtractor={citys => citys.woeid}
+          renderItem={({ item }) => (
+            // <ProfileButton onPress={() => this.handleNavigate(item)}>
+            <CityButton onPress={() => handleNavigate(item)}>
+              <CityButtonText>{item.title}</CityButtonText>
+            </CityButton>
+          )}
+        />
+      )}
     </Container>
   );
 }
