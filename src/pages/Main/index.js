@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Text } from "react-native";
-import logo from "~/assets/s.png";
-import api from "~/services/api";
+import React, { useState } from 'react';
+import { Text } from 'react-native';
+import PropTypes from 'prop-types';
+
+import logo from '~/assets/s.png';
+import api from '~/services/api';
 
 import {
   Container,
@@ -10,18 +12,22 @@ import {
   MainText,
   SearchButton,
   TextButton,
-  List
-} from "./styles";
+  List,
+} from './styles';
 
-export default function Main() {
-  const [queryCity, setqueryCity] = useState("");
-  const [city, setCity] = useState([""]);
+export default function Main({ navigation }) {
+  const [queryCity, setqueryCity] = useState('');
+  const [city, setCity] = useState(['']);
 
   async function handleSearchCity() {
     // console.tron.log(this.state.newUser);
     const response = await api.get(`?query=${queryCity}`);
     setCity([response.data]);
     console.tron.log(city);
+  }
+
+  function handleNavigate(cityData) {
+    navigation.navigate('Forecast', { cityData });
   }
 
   return (
@@ -46,9 +52,15 @@ export default function Main() {
         keyExtractor={citys => citys.woeid}
         renderItem={({ item }) => (
           // <ProfileButton onPress={() => this.handleNavigate(item)}>
-          <Text>{item.title}</Text>
+          <Text onPress={() => handleNavigate(item)}>{item.title}</Text>
         )}
       />
     </Container>
   );
 }
+
+Main.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

@@ -1,12 +1,14 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Main from './pages/Main';
+import Forecast from './pages/Forecast';
 
 export default createAppContainer(
   createStackNavigator(
     {
       Main,
+      Forecast,
     },
     {
       headerLayoutPreset: 'center',
