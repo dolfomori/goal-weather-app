@@ -22,13 +22,13 @@ export const MainText = styled.Text`
 export const Input = styled.TextInput.attrs({
   placeholderTextColor: '#999',
 })`
-margin-top:50px;
+  margin-top: 50px;
   height: 40px;
-  width:100%;
+  width: 100%;
   background: #eee;
   border-radius: 4px;
-  font-size:20px;
-  /* border: 1px solid ${props => (props.error ? 'red' : '#eee')}; */
+  font-size: 20px;
+  border: 1px solid ${props => (props.error ? 'red' : '#eee')};
   color: #999;
 `;
 

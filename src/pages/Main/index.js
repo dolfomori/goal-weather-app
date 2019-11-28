@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import logo from '~/assets/s.png';
-import { api, apiIcons } from '~/services/api';
+import api from '~/services/api';
 
 import {
+  ActivityIndicator,
   CityButton,
   CityButtonText,
   Container,
@@ -13,19 +14,27 @@ import {
   MainText,
   SearchButton,
   TextButton,
-  ActivityIndicator,
 } from './styles';
 
 export default function Main({ navigation }) {
   const [queryCity, setQueryCity] = useState('');
   const [city, setCity] = useState();
   const [loading, SetLoading] = useState(false);
+  const [error, SetError] = useState(false);
 
   async function handleSearchCity() {
     SetLoading(true);
-    const response = await api.get(`search/?query=${queryCity}`);
-    setCity(response.data);
-    SetLoading(false);
+    try {
+      const response = await api.get(`search/?query=${queryCity}`);
+      setCity(response.data);
+      SetError(false);
+    } catch (err) {
+      SetError(true);
+      SetLoading(false);
+      setCity([]);
+    } finally {
+      SetLoading(false);
+    }
   }
 
   function handleNavigate(cityData) {
@@ -46,6 +55,7 @@ export default function Main({ navigation }) {
         onSubmitEditing={handleSearchCity}
         value={queryCity}
         onChangeText={setQueryCity}
+        error={error}
       />
       <SearchButton onPress={handleSearchCity}>
         <TextButton>Search</TextButton>

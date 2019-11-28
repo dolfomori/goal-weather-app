@@ -38,15 +38,6 @@ export const ActivityIndicator = styled.ActivityIndicator`
   align-content: center;
 `;
 
-export const WeatherForecast = styled.View`
-  height: 250px;
-  flex-direction: column;
-  padding: 10px;
-  align-items: center;
-  align-content: center;
-  justify-content: space-between;
-  border: 3px solid #333;
-`;
 export const ForecastOfDay = styled.View`
   flex-direction: row;
   width: 100%;

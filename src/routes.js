@@ -12,7 +12,7 @@ export default createAppContainer(
     },
     {
       headerLayoutPreset: 'center',
-      // headerBackTitleVisible: false,
+      headerBackTitleVisible: false,
       defaultNavigationOptions: {
         headerStyle: {
           backgroundColor: '#fa7021',
