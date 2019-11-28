@@ -26,14 +26,21 @@ export default function Main({ navigation }) {
     SetLoading(true);
     try {
       const response = await api.get(`search/?query=${queryCity}`);
+
+      if (response.data.length === 0) {
+        throw error;
+      }
+
       setCity(response.data);
       SetError(false);
     } catch (err) {
       SetError(true);
       SetLoading(false);
       setCity([]);
+      setQueryCity('');
     } finally {
       SetLoading(false);
+      setQueryCity('');
     }
   }
 
@@ -50,7 +57,7 @@ export default function Main({ navigation }) {
       <Input
         autoCorrect={false}
         autoCapitalize="none"
-        placeholder="Enter Any City In The World"
+        placeholder="Search any city in the world"
         returnKeyType="send"
         onSubmitEditing={handleSearchCity}
         value={queryCity}
