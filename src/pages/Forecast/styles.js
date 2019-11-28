@@ -83,3 +83,17 @@ export const TempView = styled.View`
 `;
 
 export const TempIcon = styled.Image``;
+
+export const SwitchTemp = styled.Switch``;
+
+export const SwitchTempText = styled.Text`
+  font-size: 24px;
+`;
+
+export const ContainerSwitch = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  padding-bottom: 20px;
+`;
