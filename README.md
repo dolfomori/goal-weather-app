@@ -43,7 +43,7 @@ $ git clone https://github.com/dolfomori/rodolfo-avaliacao-gol.git
 $ yarn install
 
 # Run the app
-$ yarn start
+$ react-native run-ios or run-android
 
 ```
 
