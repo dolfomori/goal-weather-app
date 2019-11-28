@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import logo from '~/assets/s.png';
-import api from '~/services/api';
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import logo from "~/assets/s.png";
+import api from "~/services/api";
 
 import {
   ActivityIndicator,
@@ -13,11 +13,11 @@ import {
   List,
   MainText,
   SearchButton,
-  TextButton,
-} from './styles';
+  TextButton
+} from "./styles";
 
 export default function Main({ navigation }) {
-  const [queryCity, setQueryCity] = useState('');
+  const [queryCity, setQueryCity] = useState("");
   const [city, setCity] = useState();
   const [loading, SetLoading] = useState(false);
   const [error, SetError] = useState(false);
@@ -37,17 +37,17 @@ export default function Main({ navigation }) {
       SetError(true);
       SetLoading(false);
       setCity([]);
-      setQueryCity('');
+      setQueryCity("");
     } finally {
       SetLoading(false);
-      setQueryCity('');
+      setQueryCity("");
     }
   }
 
   function handleNavigate(cityData) {
-    setCity('');
-    setQueryCity('');
-    navigation.navigate('Forecast', { cityData });
+    setCity("");
+    setQueryCity("");
+    navigation.navigate("Forecast", { cityData });
   }
 
   return (
@@ -88,6 +88,6 @@ export default function Main({ navigation }) {
 
 Main.propTypes = {
   navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 };
