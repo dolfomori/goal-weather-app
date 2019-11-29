@@ -12,9 +12,6 @@
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
-[![Codacy
-Badge](https://api.codacy.com/project/badge/Grade/6b5b382543bb45b3bc71d9292f3cb8fd)](https://www.codacy.com/manual/dolfomori/rodolfo_avaliacao_gol?utm_source=github.com&utm_medium=referral&utm_content=dolfomori/rodolfo_avaliacao_gol&utm_campaign=Badge_Grade)
-
 <p align="center">
 
 </p>
