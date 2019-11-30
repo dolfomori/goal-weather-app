@@ -52,7 +52,7 @@ $ react-native run-ios or run-android
     height="400">
 <img src="https://user-images.githubusercontent.com/47903440/69902860-012a4100-1371-11ea-97ef-df811e99e7ec.png"
     height="400">
-<img src="https://user-images.githubusercontent.com/47903440/69902858-fec7e700-1370-11ea-9b6a-27e443a0fece.png"
+<img src="https://user-images.githubusercontent.com/47903440/69902919-bbba4380-1371-11ea-839e-029ae0583fc2.png"
     height="400">
 
 </h1>
