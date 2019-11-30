@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import logo from '~/assets/s.png';
 import api from '~/services/api';
+
 import {
   ActivityIndicator,
   CityButton,

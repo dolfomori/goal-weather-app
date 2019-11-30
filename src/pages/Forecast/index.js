@@ -6,10 +6,10 @@ import api from '~/services/api';
 import { convertDate, convertDegrees } from '~/util/format';
 
 import {
-  ContainerMap,
   ActivityIndicator,
   CityTitle,
   Container,
+  ContainerMap,
   ContainerSwitch,
   ContainerTemp,
   ForecastOfDay,
