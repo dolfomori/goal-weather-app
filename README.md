@@ -12,16 +12,6 @@
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
-<<<<<<< HEAD
-[![Codacy
-Badge](https://api.codacy.com/project/badge/Grade/6b5b382543bb45b3bc71d9292f3cb8fd)](https://www.codacy.com/manual/dolfomori/rodolfo_avaliacao_gol?utm_source=github.com&utm_medium=referral&utm_content=dolfomori/rodolfo_avaliacao_gol&utm_campaign=Badge_Grade)
-
-=======
->>>>>>> 2eeb7747612793ff599e580ab5edf75b2e9a2817
-<p align="center">
-
-</p>
-
 ## :rocket: Technologies
 
 This project was developed with the following technologies:
@@ -60,9 +50,9 @@ $ react-native run-ios or run-android
     height="400">
 <img src="https://user-images.githubusercontent.com/47903440/69779175-e0ea5e80-1185-11ea-9aac-cfc8c5195ddd.png"
     height="400">
-<img src="https://user-images.githubusercontent.com/47903440/69779178-e0ea5e80-1185-11ea-91bf-fd662d7068e1.png"
+<img src="https://user-images.githubusercontent.com/47903440/69902858-fec7e700-1370-11ea-9b6a-27e443a0fece.png"
     height="400">
-<img src="https://user-images.githubusercontent.com/47903440/69779179-e0ea5e80-1185-11ea-9638-2d7d468dcc06.png"
+<img src="https://user-images.githubusercontent.com/47903440/69902919-bbba4380-1371-11ea-839e-029ae0583fc2.png"
     height="400">
 
 </h1>
