@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
+import MapView from 'react-native-maps';
 import api from '~/services/api';
 import { convertDate, convertDegrees } from '~/util/format';
 
 import {
+  ContainerMap,
   ActivityIndicator,
   CityTitle,
   Container,
@@ -30,6 +32,8 @@ export default function Forecast({ navigation }) {
   const [loading, setLoading] = useState(false);
   const [switchDegrees, setSwitchDegrees] = useState(true);
   const [degreesType, setDegreesType] = useState('Celsius');
+  const [latitude, setLatitude] = useState();
+  const [longitude, setLongitude] = useState();
 
   const idNavigation = navigation.state.params.cityData.woeid;
   const cityTitle = navigation.state.params.cityData.title;
@@ -39,6 +43,9 @@ export default function Forecast({ navigation }) {
 
     try {
       const response = await api.get(`${cityID}`);
+
+      setLatitude(response.data.latt_long.split(',')[0]);
+      setLongitude(response.data.latt_long.split(',')[1]);
 
       const localData = response.data.consolidated_weather.map(item => ({
         ...item,
@@ -96,6 +103,19 @@ export default function Forecast({ navigation }) {
                 style={{ width: 60, height: 60 }}
               />
             </Header>
+
+            <ContainerMap>
+              <MapView
+                style={{ flex: 1 }}
+                region={{
+                  latitude,
+                  longitude,
+                  latitudeDelta: 0.0143,
+                  longitudeDelta: 0.0132,
+                }}
+                loadingEnabled
+              />
+            </ContainerMap>
             <List
               vertical
               data={weatherData}
@@ -139,6 +159,10 @@ export default function Forecast({ navigation }) {
     </Container>
   );
 }
+
+Forecast.navigationOptions = ({ navigation }) => ({
+  title: `Weather Forecast ${navigation.state.params.cityData.title}`,
+});
 
 Forecast.propTypes = {
   navigation: PropTypes.shape({

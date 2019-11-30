@@ -3,24 +3,25 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   padding: 30px;
-  background-color: #eee;
+  background-color: #fff;
 `;
 
 export const Header = styled.View`
-  margin-top: 20px;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 20px;
 `;
 
-export const List = styled.FlatList``;
+export const List = styled.FlatList`
+  margin-top: 30px;
+  margin-bottom: 10px;
+`;
 
 export const CityTitle = styled.Text`
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px;
 `;
 
 export const TempNow = styled.Text`
@@ -86,5 +87,8 @@ export const ContainerSwitch = styled.View`
   align-items: center;
   justify-content: center;
   justify-content: space-around;
-  padding-bottom: 20px;
+`;
+
+export const ContainerMap = styled.View`
+  height: 140px;
 `;
